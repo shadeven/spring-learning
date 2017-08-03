@@ -3,6 +3,7 @@ package com.javacodegeeks.service;
 import java.util.List;
 
 import com.javacodegeeks.model.Employee;
+import com.javacodegeeks.model.Task;
 
 public interface EmployeeService {
 	
@@ -20,5 +21,6 @@ public interface EmployeeService {
  
     boolean isEmployeeSsnUnique(Integer id, String ssn);
 
+    List<Task> getTasksByEmployeeSsn(String ssn);
 }
 

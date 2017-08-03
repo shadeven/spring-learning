@@ -1,5 +1,6 @@
 package com.javacodegeeks.dao;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -7,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.javacodegeeks.model.Employee;
+import com.javacodegeeks.model.Task;
 
 @Repository("employeeDao")
 public class EmployeeDAOImpl extends AbstractDAO<Integer, Employee> implements EmployeeDAO {
@@ -35,5 +37,14 @@ public class EmployeeDAOImpl extends AbstractDAO<Integer, Employee> implements E
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("ssn", ssn));
 		return (Employee) criteria.uniqueResult();
+	}
+
+	public List<Task> getTasksByEmployeeSsn(String ssn) {
+		Employee employee = findEmployeeBySsn(ssn);
+		if (employee != null) {
+			return employee.getTasks();
+		}
+		
+		return Collections.emptyList();
 	}
 }

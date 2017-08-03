@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.javacodegeeks.dao.EmployeeDAO;
 import com.javacodegeeks.model.Employee;
+import com.javacodegeeks.model.Task;
 
 @Service("employeeService")
 @Transactional
@@ -49,5 +50,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public boolean isEmployeeSsnUnique(Integer id, String ssn) {
 		Employee employee = findEmployeeBySsn(ssn);
 		return (employee == null || ((id != null) && (employee.getId() == id)));
+	}
+
+	public List<Task> getTasksByEmployeeSsn(String ssn) {
+		return dao.getTasksByEmployeeSsn(ssn);
 	}
 }

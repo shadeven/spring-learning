@@ -1,12 +1,15 @@
 package com.javacodegeeks.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -45,6 +48,9 @@ public class Employee {
     @Column(name = "SSN", unique=true, nullable = false)
     private String ssn;
  
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="employee")
+    private List<Task> tasks;
+    
     public int getId() {
         return id;
     }
@@ -84,7 +90,15 @@ public class Employee {
     public void setSsn(String ssn) {
         this.ssn = ssn;
     }
- 
+
+    public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -118,5 +132,4 @@ public class Employee {
         return "Employee [id=" + id + ", name=" + name + ", joiningDate="
                 + joiningDate + ", salary=" + salary + ", ssn=" + ssn + "]";
     }
-
 }
