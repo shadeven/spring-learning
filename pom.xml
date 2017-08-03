@@ -26,6 +26,8 @@
         <mysql.connector.version>5.0.4</mysql.connector.version>
         <joda-time.version>2.3</joda-time.version>
         <testng.version>6.9.4</testng.version>
+        <jackson.version>2.4.0</jackson.version>
+        <jaxb-api.version>2.2.11</jaxb-api.version>
   </properties>
   <dependencies>
   <!-- Spring -->
@@ -113,6 +115,18 @@
             <version>1.2</version>
         </dependency>
 
+      <!-- REST -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- Testing dependencies -->
         <dependency>

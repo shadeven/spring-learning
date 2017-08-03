@@ -12,18 +12,19 @@ import com.javacodegeeks.model.Employee;
 public class EmployeeDAOImpl extends AbstractDAO<Integer, Employee> implements EmployeeDAO {
 
 	public Employee findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        return getByKey(id);
+    }
 
 	public void saveEmployee(Employee employee) {
 		persist(employee);
 	}
 
 	public void deleteEmployeeBySsn(String ssn) {
-		// TODO Auto-generated method stub
-
-	}
+        Employee employee = findEmployeeBySsn(ssn);
+        if (employee != null) {
+            delete(employee);
+        }
+    }
 
 	public List<Employee> findAllEmployees() {
 		Criteria criteria = createEntityCriteria();
@@ -35,5 +36,4 @@ public class EmployeeDAOImpl extends AbstractDAO<Integer, Employee> implements E
 		criteria.add(Restrictions.eq("ssn", ssn));
 		return (Employee) criteria.uniqueResult();
 	}
-
 }
