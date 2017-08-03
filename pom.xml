@@ -17,10 +17,6 @@
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.3</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -29,7 +25,7 @@
         <hibernate.version>4.3.6.Final</hibernate.version>
         <mysql.connector.version>5.0.4</mysql.connector.version>
         <joda-time.version>2.3</joda-time.version>
-        <testng.version>6.9.4</testng.version>                           
+        <testng.version>6.9.4</testng.version>
   </properties>
   <dependencies>
   <!-- Spring -->
@@ -58,14 +54,14 @@
             <artifactId>spring-orm</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-        
+
                 <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
- 
+
         <!-- jsr303 validation -->
         <dependency>
             <groupId>javax.validation</groupId>
@@ -77,28 +73,28 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.1.3.Final</version>
         </dependency>
-        
+
         <!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connector.version}</version>
         </dependency>
- 
-        <!-- Joda-Time -->       
+
+        <!-- Joda-Time -->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${joda-time.version}</version>
         </dependency>
-         
-        <!-- To map JodaTime with database type -->      
+
+        <!-- To map JodaTime with database type -->
         <dependency>
             <groupId>org.jadira.usertype</groupId>
             <artifactId>usertype.core</artifactId>
             <version>3.0.0.CR1</version>
         </dependency>
- 
+
         <!-- Servlet+JSP+JSTL -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -116,8 +112,8 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-         
-         
+
+
         <!-- Testing dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
