@@ -48,7 +48,7 @@ public class Employee {
     @Column(name = "SSN", unique=true, nullable = false)
     private String ssn;
  
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="employee")
+    @OneToMany(mappedBy="employee")
     private List<Task> tasks;
     
     public int getId() {
