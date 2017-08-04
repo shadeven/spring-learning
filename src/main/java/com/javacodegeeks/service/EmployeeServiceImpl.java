@@ -32,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			entity.setJoiningDate(employee.getJoiningDate());
 			entity.setSalary(employee.getSalary());
 			entity.setSsn(employee.getSsn());
+			dao.saveEmployee(entity);
 		}
 	}
 

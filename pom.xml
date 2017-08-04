@@ -25,7 +25,7 @@
         <hibernate.version>4.3.6.Final</hibernate.version>
         <mysql.connector.version>5.0.4</mysql.connector.version>
         <joda-time.version>2.3</joda-time.version>
-        <testng.version>6.9.4</testng.version>
+        <junit.version>4.12</junit.version>
         <jackson.version>2.4.0</jackson.version>
         <jaxb-api.version>2.2.11</jaxb-api.version>
   </properties>
@@ -136,10 +136,21 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>4.1.7.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+          <version>1.9.5</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
 </project>
