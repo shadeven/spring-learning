@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -42,7 +43,9 @@ public class EmployeeDAOImpl extends AbstractDAO<Integer, Employee> implements E
 	public List<Task> getTasksByEmployeeSsn(String ssn) {
 		Employee employee = findEmployeeBySsn(ssn);
 		if (employee != null) {
-			return employee.getTasks();
+			List<Task> tasks = employee.getTasks();
+			Hibernate.initialize(tasks);
+			return tasks;
 		}
 		
 		return Collections.emptyList();

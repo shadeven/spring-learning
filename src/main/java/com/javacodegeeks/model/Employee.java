@@ -20,6 +20,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="EMPLOYEE")
@@ -49,6 +51,7 @@ public class Employee {
     private String ssn;
  
     @OneToMany(mappedBy="employee")
+    @JsonIgnore
     private List<Task> tasks;
     
     public int getId() {
