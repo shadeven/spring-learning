@@ -55,9 +55,9 @@ public class EmployeeRestController {
         return new ResponseEntity<Employee>(currentEmployee, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") int id, @RequestBody String ssn) {
-        Employee employee = service.findById(id);
+    @RequestMapping(value = "/user/{ssn}", method = RequestMethod.DELETE)
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable("ssn") String ssn) {
+        Employee employee = service.findEmployeeBySsn(ssn);
         if (employee == null) {
             return new ResponseEntity<Employee>(HttpStatus.NOT_FOUND);
         }

@@ -3,6 +3,7 @@ package com.javacodegeeks.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,7 +51,7 @@ public class Employee {
     @Column(name = "SSN", unique=true, nullable = false)
     private String ssn;
  
-    @OneToMany(mappedBy="employee")
+    @OneToMany(mappedBy="employee", cascade=CascadeType.ALL)
     @JsonIgnore
     private List<Task> tasks;
     
