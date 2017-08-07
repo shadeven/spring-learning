@@ -23,6 +23,12 @@ public class AppConfiguration {
         employee.setId(1);
         employee.setName("Steven");
         Mockito.when(mockDAO.findById(Mockito.anyInt())).thenReturn(employee);
+
+        Employee employee1 = new Employee();
+        employee1.setId(2);
+        employee1.setSsn("1212");
+        Mockito.when(mockDAO.findEmployeeBySsn("1212")).thenReturn(employee1);
+
         return mockDAO;
     }
 }

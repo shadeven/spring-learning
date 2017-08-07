@@ -34,4 +34,13 @@ public class SpringLearningTest {
         // Assert
         assertEquals(employee.getId(), 2);
     }
+
+    @Test
+    public void testIsEmployeeSsnUnique() {
+        // Act
+        boolean result = service.isEmployeeSsnUnique(1, "1212");
+
+        // Assert
+        assertFalse(result);
+    }
 }
